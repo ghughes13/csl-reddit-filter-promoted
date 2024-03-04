@@ -1,22 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "Get Page Images",
-  "description": "Grabs all images on a page and allows you to download any you choose.",
-  "version": "1.2.0",
+  "name": "Filter Promoted - Reddit",
+  "description": "Hides all promoted posts an reddit.",
+  "version": "1.0.0",
   "author": {
     "email": "CybershiftLabs@gmail.com"
   },
   "icons": {
-    "16": "images/GetPageImages-logo-16x16.png",
-    "32": "images/GetPageImages-logo-32x32.png",
-    "48": "images/GetPageImages-logo-48x48.png",
-    "128": "images/GetPageImages-logo-128x128.png"
+    "16": "images/FilterPromoted-16x16.png",
+    "32": "images/FilterPromoted-32x32.png",
+    "48": "images/FilterPromoted-48x48.png",
+    "128": "images/FilterPromoted-128x128.png"
   },
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*", "*://reddit.com/*"],
+      "js": ["scripts/content.js"]
+    }
+  ],
   "action": {
-    "default_icon": "images/GetPageImages-logo.png"
+    "default_icon": "images/FilterPromoted.png"
   },
-  "permissions": ["activeTab", "scripting", "storage", "downloads"],
-  "background": {
-    "service_worker": "scripts/background.js"
-  }
+  "permissions": ["activeTab", "scripting"]
 }
